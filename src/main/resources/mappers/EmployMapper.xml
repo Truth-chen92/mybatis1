@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--MyBatis利用namespace 属性找到XML文件对应的Mapper接口-->
+<mapper namespace="cn.tedu.mybatis1.mapper.DemoMapper">
+<!--    MyBatis 根据id属性找到接口中对应的方法名-->
+<!--    select 元素 必须指定resultMap或者resultType属性
+        用于将SQL查询结果映射到返回值类型 resultMap用于复杂
+        返回结果映射 而resultType适合简单类型或者简单Javabean
+        的映射 设定返回值类型即可-->
+    <select id="demo" resultType="java.lang.String">
+        SELECT 'HELLO WORLD!'
+    </select>
+
+</mapper>
