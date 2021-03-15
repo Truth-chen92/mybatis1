@@ -10,4 +10,10 @@ public interface DemoMapper {
      */
     @Select("select 'Hello World!'")
     String hello();
+    /**
+     * 测试利用XML文件将SQL映射到demo方法
+     */
+    String demo();
+
+    Integer deleteAllEmployee(int... n);
 }

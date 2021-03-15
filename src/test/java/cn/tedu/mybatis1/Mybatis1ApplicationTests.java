@@ -17,5 +17,12 @@ class Mybatis1ApplicationTests {
         String str=demoMapper.hello();
         log.debug(str);
     }
+    @Test
+    void demo(){
+        String str=demoMapper.demo();
+        log.debug("{}",str);
+    }
+
+
 
 }

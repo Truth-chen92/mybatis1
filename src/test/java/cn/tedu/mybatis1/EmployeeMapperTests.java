@@ -1,7 +1,9 @@
 package cn.tedu.mybatis1;
 
 import cn.tedu.mybatis1.entity.Employee;
+import cn.tedu.mybatis1.mapper.DemoMapper;
 import cn.tedu.mybatis1.mapper.EmployeeMapper;
+import cn.tedu.mybatis1.vo.EmployeeVO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -63,5 +65,41 @@ public class EmployeeMapperTests {
         n=mapper.saveEmployee(employee);
         log.debug("行数：{}",n);
     }
-
+    @Test
+    void getEmployBySalary(){
+        List<Employee>list = mapper.getEmployBySalary(200.0,2200.0);
+        list.forEach(e->log.debug("{}",e));
+    }
+    @Test
+    void saveAuto(){
+        Employee employee = new Employee().setName("叶其杰")
+                .setJob("聊QQ").setSalary(1500.0).setComm(100.0)
+                .setHiredate(LocalDate.now()).setDeptNo(1).setMgr(0);
+        Integer n=mapper.saveEmployee(employee);
+        log.debug("添加行数:{}", n);
+        log.debug("添加成功:{}",employee);
+    }
+    @Test
+    void deleteAllEmployee(){
+        Integer n= mapper.deleteAllEmployee(7,8,9);
+        log.debug("{}", n);
+    }
+    @Test
+    void getName(){
+        String s=mapper.getName("ename",4);
+        log.debug("{}",s);
+        String s2=mapper.getName("job",6);
+        log.debug("{}", s2);
+    }
+    @Test
+    void updateEmployeeInfo(){
+        Employee employee=new Employee().setEmpNo(4).setJob("霸王").setName("小小");
+        Integer n=mapper.updateEmployeeInfo(employee);
+        log.debug("{}", n);
+    }
+    @Test
+    void a(){
+        List<EmployeeVO> list = mapper.getEmployeeInfo("java");
+        list.forEach(e->log.debug("{}",e));
+    }
 }
